@@ -6,6 +6,7 @@ set :deploy_to, '/home/carlos/odot'
 set :user, 'carlos'
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
+
 namespace :deploy do
 
   %w[start stop restart].each do |command|
