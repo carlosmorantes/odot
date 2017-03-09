@@ -6,18 +6,15 @@ set :deploy_to, '/home/carlos/odot'
 set :user, 'carlos'
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
-
 namespace :deploy do
 
-  %w[start stop restart].each do |command|
-    desc 'Manage Unicorn'
-    task command do
-      on roles(:app), in: :sequence, wait: 1 do
-        execute "/etc/init.d/unicorn_#{fetch(:application)} #{command}"
-      end
+  desc 'Restart application'
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+      execute :touch, release_path.join('tmp/restart.txt')
     end
   end
 
-  after :publishing, :restart
-
+  after :publishing, 'deploy:restart'
+  after :finishing, 'deploy:cleanup'
 end
