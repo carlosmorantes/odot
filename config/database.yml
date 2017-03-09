@@ -8,9 +8,8 @@ default: &default
   adapter: postgresql
   enconding: unique
   pool: 5
-  username: postgres
-  password: postgres
-  host: localhost
+  username: odotuser
+  password: Geheim123
 
 
 development:
