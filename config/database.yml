@@ -10,7 +10,7 @@ default: &default
   pool: 5
   username: odotuser
   password: Geheim123
-
+  host: localhost
 
 development:
   <<: *default
