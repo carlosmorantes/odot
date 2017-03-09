@@ -198,7 +198,6 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
-  capistrano-bundler
   capistrano-rails
   capistrano-rbenv
   capybara (~> 2.1.0)
